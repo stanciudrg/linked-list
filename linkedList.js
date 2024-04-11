@@ -42,4 +42,9 @@ class LinkedList {
 
     return size;
   }
+
+   // Returns the first node in the list
+   getHead() {
+    return this.head;
+  }
 }
