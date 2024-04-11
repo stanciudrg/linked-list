@@ -127,4 +127,21 @@ class LinkedList {
 
     return null;
   }
+
+  // Represents the linkedList nodes as strings
+  toString() {
+    let tmp = this.head;
+    let string = "";
+
+    while (tmp !== null) {
+      // Add the data of each node into the string
+      string = string.concat(`( ${tmp.data} ) -> `);
+      tmp = tmp.next;
+    }
+
+    // Add the permanent 'null' value at the end of the string
+    // to visualize the end of the list
+    string = string.concat("null");
+    return string;
+  }
 }
