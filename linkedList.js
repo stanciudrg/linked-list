@@ -23,8 +23,8 @@ class LinkedList {
     tmp.next = new Node(data);
   }
 
-   // Adds a new node containing 'data' to the start of the list
-   prepend(data) {
+  // Adds a new node containing 'data' to the start of the list
+  prepend(data) {
     this.head = new Node(data, this.head);
   }
 
@@ -43,8 +43,8 @@ class LinkedList {
     return size;
   }
 
-   // Returns the first node in the list
-   getHead() {
+  // Returns the first node in the list
+  getHead() {
     return this.head;
   }
 
@@ -57,6 +57,20 @@ class LinkedList {
 
     while (tmp.next !== null) {
       tmp = tmp.next;
+    }
+
+    return tmp;
+  }
+
+  // Returns the node at the given index, otherwise returns undefined
+  at(index) {
+    let tmp = this.head;
+    let counter = 0;
+
+    while (counter < index) {
+      if (tmp.next === null) return;
+      tmp = tmp.next;
+      counter++;
     }
 
     return tmp;
