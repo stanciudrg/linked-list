@@ -144,4 +144,33 @@ class LinkedList {
     string = string.concat("null");
     return string;
   }
+
+  // Inserts a new node containing the provided data at the given index
+  insertAt(data, index) {
+    // Ignore requests for indexes lower than 0;
+    if (index < 0) return;
+    // Fall back on the prepend method when the request is to add the node at
+    // the beginning of the list
+    if (index === 0) return this.prepend(data);
+
+    // Keep track of previous and current nodes
+    let tmp = this.head;
+    let previous = tmp;
+
+    let counter = 0;
+
+    // Attempt to go deeper into the list until counter is equal to index
+    while (counter < index) {
+      // Break the loop and prevent further action if the end of the list is
+      // reached before the counter reaches the index (the index does not exist);
+      if (tmp === null) return;
+      previous = tmp;
+      tmp = tmp.next;
+      counter++;
+    }
+
+    // Set the previous node's next value to a new Node that contains the provided data,
+    // then set the new node's next value to the current node (tmp);
+    previous.next = new Node(data, tmp);
+  }
 }
