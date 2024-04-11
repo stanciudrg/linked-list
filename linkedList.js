@@ -112,4 +112,19 @@ class LinkedList {
 
     return false;
   }
+
+  // Returns the index of the node containing the data, otherwise returns null
+  find(data) {
+    let tmp = this.head;
+    // Index === number of iterations within the while loop
+    let index = 0;
+
+    while (tmp !== null) {
+      if (tmp.data === data) return index;
+      tmp = tmp.next;
+      index++;
+    }
+
+    return null;
+  }
 }
