@@ -47,4 +47,18 @@ class LinkedList {
    getHead() {
     return this.head;
   }
+
+  // Returns the last node in the list
+  getTail() {
+    // If the list is empty, return the head (null);
+    if (this.head === null) return this.head;
+
+    let tmp = this.head;
+
+    while (tmp.next !== null) {
+      tmp = tmp.next;
+    }
+
+    return tmp;
+  }
 }
