@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class LinkedList {
+export default class LinkedList {
   constructor() {
     this.head = null;
   }
@@ -172,5 +172,35 @@ class LinkedList {
     // Set the previous node's next value to a new Node that contains the provided data,
     // then set the new node's next value to the current node (tmp);
     previous.next = new Node(data, tmp);
+  }
+
+  // Removes the node at the given index
+  removeAt(index) {
+    // Ignore requests for indexes lower than 0;
+    if (index < 0) return;
+    // Replace the current head node with the head.next node
+    // when the request is to remove the first node within the list
+    if (index === 0) return (this.head = this.head.next);
+
+    // Keep track of previous and current nodes
+    let tmp = this.head;
+    let previous = tmp;
+    let counter = 0;
+
+    // Attempt to go deeper into the list until counter is equal to index
+    while (counter < index) {
+      // Break the loop and prevent further action if the end of the list is
+      // reached before the counter reaches the index (the index does not exist);
+      if (tmp.next === null) return;
+      previous = tmp;
+      tmp = tmp.next;
+      counter++;
+    }
+
+    // Set the previous node's next value to the current node's next value
+    // linked list before: previous.next => tmp => tmp.next
+    // linked list after: previous.next => tmp.next
+    // The middle node (tmp) has been removed
+    previous.next = tmp.next;
   }
 }
