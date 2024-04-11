@@ -100,4 +100,16 @@ class LinkedList {
     // value to null;
     previous.next = null;
   }
+
+  // Returns true if the passed in data is in the list, otherwise returns false
+  contains(data) {
+    let tmp = this.head;
+
+    while (tmp !== null) {
+      if (tmp.data === data) return true;
+      tmp = tmp.next;
+    }
+
+    return false;
+  }
 }
