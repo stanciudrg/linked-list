@@ -1,5 +1,5 @@
 # linked-list
-A utility class for creating a Linked List data structure with the following methods:
+Utility class for creating a Linked List data structure with the following methods:
 
 - append(data) - Adds a new node containing 'data' to the end of the list.
 - prepend(data) - Adds a new node containing 'data' to the start of the list.
