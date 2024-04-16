@@ -13,3 +13,4 @@ Utility class for creating a Linked List data structure with the following metho
 - toString() - Represents the Linked List nodes as strings.
 - insertAt(data, index) - Inserts a new node containing the provided data at the given index.
 - removeAt(index) - Removes the node at the given index.
+- findAndRemove(data) - Loops through the list until 'data' is found, then removes it and returns true, otherwise returns false
