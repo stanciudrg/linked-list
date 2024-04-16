@@ -203,4 +203,30 @@ export default class LinkedList {
     // The middle node (tmp) has been removed
     previous.next = tmp.next;
   }
+
+  // Loops through the list until 'data' is found, then removes it and returns true,
+  // otherwise returns false
+  findAndRemove(data) {
+    // Replace the current head node with the head.next node
+    // when the request is to remove the first node within the list
+    if (this.head.data === data) return (this.head = this.head.next);
+    // Keep track of previous and current nodes
+    let tmp = this.head;
+    let previous = tmp;
+
+    while (tmp !== null) {
+      if (tmp.data === data) {
+        // Set the previous node's next value to the current node's next value
+        // linked list before: previous.next => tmp => tmp.next
+        // linked list after: previous.next => tmp.next
+        // The middle node (tmp) has been removed
+        previous.next = tmp.next;
+        return true;
+      }
+      previous = tmp;
+      tmp = tmp.next;
+    }
+
+    return false;
+  }
 }
